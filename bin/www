@@ -1,0 +1,15 @@
+require('dotenv').config();
+const http = require('http');
+const app  = require('../app');
+const port = parseInt(process.env.PORT) || 8000;
+const host = process.env.HOST || "http://localhost";
+
+// The express app we just created
+app.set('port', port);
+const server = http.createServer(app);
+
+server.listen(port, function(){
+	console.log('starting server...');
+	console.log(host+':'+port);
+	console.log('press & hold down ctrl+c to terminate server');
+});
