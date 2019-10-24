@@ -1,4 +1,4 @@
-# todo-api
+# Todo-api
 A todo api for nativescript application
 
 ## Get started
