@@ -9,9 +9,9 @@ var users         = require('./routes/users');
 var app = express();
 
 app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
-  next()
+  	res.setHeader('Access-Control-Allow-Origin', '*')
+  	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+  	next()
 });
 
 app.use(logger('dev'));
@@ -25,15 +25,15 @@ app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  if(err.status == 404){
-    res.status(200).json({status: "info", message: "Endpoint not found!"});
-  }else if(err.status == 500){
-    res.status(500).json({status: "error", message: "Internal server error!"});
-  }else{
-    next(err);
-  }
+	var err = new Error('Not Found');
+	err.status = 404;
+	if(err.status == 404){
+    	res.status(200).json({status: "info", message: "Endpoint not found!"});
+ 	}else if(err.status == 500){
+		res.status(500).json({status: "error", message: "Internal server error!"});
+	}else{
+    	next(err);
+  	}
 });
 
 module.exports = app;
